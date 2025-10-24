@@ -15,7 +15,7 @@ pipeline {
                     echo "login docker and build image"
                     withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                         sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
-                        sh " sudo docker build -t ${DOCKER_USER}/django-app ."
+                        sh "docker build -t ${DOCKER_USER}/django-app ."
                     }
                 }
             }
